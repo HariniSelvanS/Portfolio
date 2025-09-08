@@ -3,78 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ultra Modern UI</title>
+  <title>My Portfolio</title>
   <style>
-    /* Base Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+    /* Reset + clean font */
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f5f7fa;
+      overflow-x: hidden;
     }
 
-    body {
-      background: linear-gradient(135deg, #0a2540, #1e3c72, #2a5298);
-      color: #ffffff;
+    header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 1.2rem 3rem;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #00c6ff;
+      letter-spacing: 1px;
+    }
+
+    header nav a {
+      margin-left: 2rem;
+      text-decoration: none;
+      color: #f5f7fa;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    header nav a:hover {
+      color: #00c6ff;
+    }
+
+    .hero {
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-    }
-
-    /* Card Container */
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 40px;
-      max-width: 400px;
       text-align: center;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 2rem;
     }
 
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 15px;
-      background: linear-gradient(to right, #4facfe, #00f2fe);
+    .hero h2 {
+      font-size: 3rem;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
     }
 
-    p {
-      font-size: 1rem;
-      color: #cbd5e1;
-      margin-bottom: 25px;
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.7;
+      color: #dce3eb;
     }
 
-    button {
-      background: linear-gradient(135deg, #4facfe, #00f2fe);
+    .btn {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
       border: none;
-      border-radius: 30px;
-      padding: 12px 28px;
-      font-size: 1rem;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
       color: white;
+      font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: 0.3s ease;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,114,255,0.3);
     }
 
-    button:hover {
-      background: linear-gradient(135deg, #00f2fe, #4facfe);
-      transform: scale(1.05);
+    section {
+      padding: 6rem 3rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+    .card h3 {
+      margin-bottom: 1rem;
+      color: #00c6ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #dce3eb;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Ultra Modern UI</h1>
-    <p>This is a clean, futuristic card with a blue theme.</p>
-    <button>Explore</button>
-  </div>
+  <header>
+    <h1>MyPortfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h2>Hello, I'm Harini 👋</h2>
+      <p>A passionate developer building clean, modern, and interactive apps with a futuristic touch.</p>
+      <button class="btn">View My Work</button>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 style="text-align:center;">🚀 Projects</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Attendance App</h3>
+        <p>A smart app to manage student attendance with charts and database.</p>
+      </div>
+      <div class="card">
+        <h3>Snake Game</h3>
+        <p>A classic game rebuilt using Jetpack Compose with animations.</p>
+      </div>
+      <div class="card">
+        <h3>Secure Notes</h3>
+        <p>Face ID authenticated note manager app for security-focused users.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 style="text-align:center;">📬 Contact Me</h2>
+    <p style="text-align:center; margin-top:1rem;">Email: yourmail@example.com</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Harini. Crafted with ❤️ in blue vibes.</p>
+  </footer>
 </body>
 </html>
