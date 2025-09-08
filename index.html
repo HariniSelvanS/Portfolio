@@ -1,235 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Harini | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultra Modern UI</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #f4f9ff;
-      color: #222;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-    header {
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      color: white;
-      text-align: center;
-      padding: 4rem 1rem 6rem;
-      position: relative;
-      border-radius: 0 0 40% 40% / 12%;
-    }
-    header h1 {
-      font-size: 2.6rem;
-      font-weight: 700;
-    }
-    header p {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-      opacity: 0.9;
-    }
-    .profile-picture {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid #fff;
-      margin-top: -70px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    }
-    .tabs {
+      background: linear-gradient(135deg, #0a2540, #1e3c72, #2a5298);
+      color: #ffffff;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      background: #fff;
-      padding: 0.6rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      border-radius: 50px;
-      margin: -2rem auto 2rem;
-      max-width: 850px;
+      align-items: center;
+      height: 100vh;
     }
-    .tabs button {
-      padding: 0.7rem 1.3rem;
-      border: none;
-      border-radius: 25px;
-      margin: 0.3rem;
-      cursor: pointer;
-      font-size: 15px;
-      font-weight: 500;
-      color: #1e40af;
-      background: #f9fbff;
-      transition: all 0.3s ease;
-    }
-    .tabs button.active, .tabs button:hover {
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      color: white;
-      transform: scale(1.05);
-    }
-    section {
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      padding: 2rem;
-      margin-top: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      display: none;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.5s ease;
-    }
-    section.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h2 {
-      color: #2563eb;
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-    ul li { margin-bottom: 0.6rem; }
-    a { color: #2563eb; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .download-button {
-      display: inline-block;
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      color: white;
-      padding: 0.6rem 1.3rem;
-      border-radius: 30px;
-      text-decoration: none;
-      margin-top: 1rem;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-    .download-button:hover {
-      background: #1d4ed8;
-    }
-    footer {
+
+    /* Card Container */
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 400px;
       text-align: center;
-      padding: 1.5rem;
-      background: #1e40af;
-      color: white;
-      margin-top: 3rem;
-      border-radius: 40% 40% 0 0 / 12%;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    /* Dark Mode */
-    .dark-mode {
-      background: #0f172a;
-      color: #f1f5f9;
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
     }
-    .dark-mode section { background: #1e293b; }
-    .dark-mode .tabs { background: #1e293b; }
-    .dark-mode .tabs button { color: #f1f5f9; background: #334155; }
-    .dark-mode .tabs button.active,
-    .dark-mode .tabs button:hover {
-      background: #2563eb;
-      color: #fff;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .dark-toggle {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: #fff;
+
+    p {
+      font-size: 1rem;
+      color: #cbd5e1;
+      margin-bottom: 25px;
+    }
+
+    button {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
       border: none;
-      padding: 0.5rem 1rem;
       border-radius: 30px;
-      cursor: pointer;
-      font-weight: 600;
-      color: #2563eb;
-      transition: 0.3s;
-    }
-    .dark-toggle:hover {
-      background: #2563eb;
+      padding: 12px 28px;
+      font-size: 1rem;
       color: white;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #00f2fe, #4facfe);
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-<header>
-  <button class="dark-toggle" onclick="toggleDarkMode()">☾</button>
-  <h1>Harini</h1>
-  <p>💡 Developer | Learner | Creator</p>
-</header>
-
-<div style="text-align:center;">
-  <img src="harini.jpg" alt="Profile Picture" class="profile-picture" id="profileImage">
-</div>
-
-<div class="tabs">
-  <button class="tab-btn active" data-tab="about">About</button>
-  <button class="tab-btn" data-tab="skills">Skills</button>
-  <button class="tab-btn" data-tab="projects">Projects</button>
-  <button class="tab-btn" data-tab="education">Education</button>
-  <button class="tab-btn" data-tab="contact">Contact</button>
-</div>
-
-<section id="about" class="active">
-  <h2>About Me</h2>
-  <p>Hello, I’m <b>Harini</b> 🌸 — passionate about <i>technology and creativity</i>.  
-  I enjoy building apps, exploring AI, and creating user-friendly designs that inspire people.</p>
-</section>
-
-<section id="skills">
-  <h2>Skills</h2>
-  <ul>
-    <li>🌐 Web Development</li>
-    <li>📱 Android (Kotlin + Jetpack Compose)</li>
-    <li>☁️ Cloud Computing & Security</li>
-    <li>🤖 Machine Learning</li>
-    <li>⚡ C++, Java, Python</li>
-    <li>🎨 UI/UX & Creative Design</li>
-  </ul>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-  <ul>
-    <li><a href="#">Smart Attendance App (with Face ID)</a></li>
-    <li><a href="#">Snake Game in Jetpack Compose</a></li>
-    <li><a href="#">Food Delivery App</a></li>
-    <li><a href="#">Secure Notes Manager</a></li>
-  </ul>
-</section>
-
-<section id="education">
-  <h2>Education</h2>
-  <p><b>B.sc. – Computer Science</b><br>Focused on OOP, AI, and mobile application development.</p>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:harini@example.com">harini@example.com</a></p>
-  <p>📍 Chennai, India</p>
-  <div style="margin-top: 1rem;">
-    <a href="https://linkedin.com" target="_blank">LinkedIn</a> |
-    <a href="https://github.com" target="_blank">GitHub</a> |
-    <a href="https://instagram.com" target="_blank">Instagram</a>
+  <div class="card">
+    <h1>Ultra Modern UI</h1>
+    <p>This is a clean, futuristic card with a blue theme.</p>
+    <button>Explore</button>
   </div>
-</section>
-
-<footer>
-  <p>© 2025 Harini | Built with 💙</p>
-</footer>
-
-<script>
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabSections = document.querySelectorAll('section');
-
-  tabButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelector('.tab-btn.active').classList.remove('active');
-      btn.classList.add('active');
-      tabSections.forEach(section => section.classList.remove('active'));
-      document.getElementById(btn.getAttribute('data-tab')).classList.add('active');
-    });
-  });
-
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-  }
-</script>
 </body>
 </html>
